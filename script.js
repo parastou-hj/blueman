@@ -479,3 +479,60 @@ function convertToPersianNumbers() {
 
 // اجرای تابع بعد از بارگذاری صفحه
 document.addEventListener('DOMContentLoaded', convertToPersianNumbers);
+// کد JavaScript ساده برای منوی موبایل استاتیک
+// این کد فقط رفتار منو را کنترل می‌کند و هیچ المنتی نمی‌سازد
+$(document).ready(function() {
+    // 1. باز و بسته کردن منوی موبایل
+    $('.mobile-menu-toggle').on('click', function() {
+        $('.mobile-side-menu').addClass('active');
+        $('.mobile-menu-overlay').addClass('active');
+        $('body').addClass('menu-open');
+    });
+    
+    // 2. بستن منوی موبایل
+    $('.mobile-menu-close, .mobile-menu-overlay').on('click', function() {
+        $('.mobile-side-menu').removeClass('active');
+        $('.mobile-menu-overlay').removeClass('active');
+        $('body').removeClass('menu-open');
+    });
+    
+    // 3. باز و بسته کردن منوی اصلی
+    $('.mobile-side-menu .nav-item.has-megamenu > .nav-link').on('click', function(e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('active');
+        $(this).find('.dropdown-indicator i').toggleClass('fa-chevron-down fa-chevron-up');
+    });
+    
+    // 4. باز و بسته کردن زیرمنوهای دسته‌بندی
+    $('.mobile-category-item > a').on('click', function(e) {
+        e.preventDefault();
+        const $parent = $(this).parent();
+        const $submenu = $parent.find('.mobile-submenu');
+        
+        if ($submenu.length) {
+            if ($submenu.is(':visible')) {
+                $submenu.slideUp(300);
+                $parent.removeClass('active');
+                $(this).find('.dropdown-indicator i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+            } else {
+                $submenu.slideDown(300);
+                $parent.addClass('active');
+                $(this).find('.dropdown-indicator i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+            }
+        }
+    });
+    
+    // 5. نمایش/عدم نمایش منوی موبایل در هنگام تغییر اندازه صفحه
+    $(window).on('resize', function() {
+        if (window.innerWidth > 991) {
+            $('.mobile-side-menu').removeClass('active');
+            $('.mobile-menu-overlay').removeClass('active');
+            $('body').removeClass('menu-open');
+        }
+    });
+    
+    // 6. انیمیشن آیکون منوی موبایل
+    $('.mobile-menu-toggle').on('click', function() {
+        $(this).toggleClass('active');
+    });
+});
