@@ -1,3 +1,189 @@
+
+// Mobile Menu Toggle Functionality
+// Dynamic Mega Menu JavaScript
+$(document).ready(function() {
+    // Set default active category (first one)
+    const defaultCategory = $('.category-item').first().data('category');
+    $('.category-item').first().addClass('active');
+    $(`#${defaultCategory}-content`).addClass('active');
+    
+    // Category hover/click behavior
+    $('.category-item').on('mouseenter', function() {
+        // Desktop behavior (hover)
+        if (window.innerWidth > 991) {
+            const categoryId = $(this).data('category');
+            
+            // Remove active class from all categories and contents
+            $('.category-item').removeClass('active');
+            $('.subcategory-content').removeClass('active');
+            
+            // Add active class to current category and content
+            $(this).addClass('active');
+            $(`#${categoryId}-content`).addClass('active');
+        }
+    });
+    
+    // Mobile category click behavior
+    $('.category-item').on('click', function(e) {
+        if (window.innerWidth <= 991) {
+            e.preventDefault();
+            const categoryId = $(this).data('category');
+            
+            // Toggle active classes
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $(`#${categoryId}-content`).removeClass('active');
+            } else {
+                $('.category-item').removeClass('active');
+                $('.subcategory-content').removeClass('active');
+                
+                $(this).addClass('active');
+                $(`#${categoryId}-content`).addClass('active');
+            }
+        }
+    });
+    
+    // Keep menu open when interacting with subcategories
+    $('.subcategory-content').on('mouseenter', function() {
+        if (window.innerWidth > 991) {
+            $(this).addClass('active');
+        }
+    });
+    
+    // Mobile menu toggle for main mega menu
+    $('.has-megamenu > .nav-link').on('click', function(e) {
+        if (window.innerWidth <= 991) {
+            e.preventDefault();
+            const parent = $(this).parent();
+            
+            // Toggle active class
+            parent.toggleClass('active');
+            
+            // Show/hide megamenu container
+            if (parent.hasClass('active')) {
+                parent.find('.megamenu-container').slideDown(300);
+            } else {
+                parent.find('.megamenu-container').slideUp(300);
+            }
+        }
+    });
+    
+    // Prevent menu from closing when clicking inside it
+    $('.megamenu-container').on('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Handle window resize
+    $(window).on('resize', function() {
+        if (window.innerWidth > 991) {
+            // Reset for desktop
+            $('.megamenu-container').css('display', '');
+            
+            // Make sure default category is set
+            if (!$('.category-item.active').length) {
+                $('.category-item').first().addClass('active');
+                const defaultCategory = $('.category-item').first().data('category');
+                $(`#${defaultCategory}-content`).addClass('active');
+            }
+        }
+    });
+    
+    // Function to load categories dynamically (for future implementation)
+    function loadDynamicCategories() {
+        // Example API endpoint
+        // $.ajax({
+        //     url: 'api/categories',
+        //     method: 'GET',
+        //     dataType: 'json',
+        //     success: function(response) {
+        //         if (response && response.categories) {
+        //             let categoriesHtml = '';
+        //             
+        //             // Generate categories
+        //             response.categories.forEach(function(category) {
+        //                 categoriesHtml += `<li class="category-item" data-category="${category.id}"><a href="${category.url}">${category.name}</a></li>`;
+        //                 
+        //                 // Generate subcategories for each category
+        //                 let subcategoriesHtml = `
+        //                     <div class="subcategory-content" id="${category.id}-content">
+        //                         <h3 class="megamenu-title">${category.name}</h3>
+        //                         <ul class="megamenu-list subcategory-list">`;
+        //                 
+        //                 category.subcategories.forEach(function(subcategory) {
+        //                     subcategoriesHtml += `<li><a href="${subcategory.url}">${subcategory.name}</a></li>`;
+        //                 });
+        //                 
+        //                 subcategoriesHtml += `
+        //                         </ul>
+        //                         <a href="${category.url}" class="view-all-link">مشاهده همه ${category.name} <i class="fa fa-angle-left"></i></a>
+        //                     </div>`;
+        //                 
+        //                 // Add subcategory content to subcategories column
+        //                 $('.subcategories-column').append(subcategoriesHtml);
+        //             });
+        //             
+        //             // Update categories list
+        //             $('.categories-list').html(categoriesHtml);
+        //             
+        //             // Set first category as active
+        //             $('.category-item').first().addClass('active');
+        //             const defaultCategory = $('.category-item').first().data('category');
+        //             $(`#${defaultCategory}-content`).addClass('active');
+        //             
+        //             // Rebind event handlers
+        //             bindCategoryEvents();
+        //         }
+        //     },
+        //     error: function(error) {
+        //         console.log('Error loading categories', error);
+        //     }
+        // });
+    }
+    
+    // Function to bind category events (useful after dynamic loading)
+    function bindCategoryEvents() {
+        // Reset existing events
+        $('.category-item').off('mouseenter click');
+        
+        // Rebind hover event
+        $('.category-item').on('mouseenter', function() {
+            if (window.innerWidth > 991) {
+                const categoryId = $(this).data('category');
+                
+                $('.category-item').removeClass('active');
+                $('.subcategory-content').removeClass('active');
+                
+                $(this).addClass('active');
+                $(`#${categoryId}-content`).addClass('active');
+            }
+        });
+        
+        // Rebind click event for mobile
+        $('.category-item').on('click', function(e) {
+            if (window.innerWidth <= 991) {
+                e.preventDefault();
+                const categoryId = $(this).data('category');
+                
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active');
+                    $(`#${categoryId}-content`).removeClass('active');
+                } else {
+                    $('.category-item').removeClass('active');
+                    $('.subcategory-content').removeClass('active');
+                    
+                    $(this).addClass('active');
+                    $(`#${categoryId}-content`).addClass('active');
+                }
+            }
+        });
+    }
+    
+    // Uncomment to enable dynamic loading
+    // loadDynamicCategories();
+});
+
+
+
 $(function () {
     $("#baner-owl").owlCarousel({
       rtl: true,
