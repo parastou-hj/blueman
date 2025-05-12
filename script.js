@@ -530,3 +530,113 @@ $(document).ready(function() {
         $(this).toggleClass('active');
     });
 });
+
+/* JavaScript for Footer Accordion Functionality */
+$(document).ready(function() {
+  // First, add special wrapper classes to Contact and Social sections
+  // This allows us to target them specifically in CSS
+  $('.footer-column.large').each(function() {
+    if ($(this).find('.contact-column').length) {
+      $(this).addClass('contact-column-wrapper');
+    }
+    if ($(this).find('.social-column').length) {
+      $(this).addClass('social-column-wrapper');
+    }
+  });
+  
+  // Only apply accordion behavior below 992px
+  function setupFooterAccordion() {
+    if (window.innerWidth < 992) {
+      // Remove any existing event listeners first
+      $('.footer-column:not(.contact-column-wrapper):not(.social-column-wrapper) h3').off('click');
+      
+      // Add click event to footer column headings (excluding contact and social)
+      $('.footer-column:not(.contact-column-wrapper):not(.social-column-wrapper) h3').on('click', function() {
+        const column = $(this).parent('.footer-column');
+        
+        // If this column is already active, just close it
+        if (column.hasClass('active')) {
+          column.removeClass('active');
+          column.find('ul').slideUp(300);
+          return;
+        }
+        
+        // Close all other columns (excluding contact and social)
+        $('.footer-column:not(.contact-column-wrapper):not(.social-column-wrapper)').removeClass('active');
+        $('.footer-column:not(.contact-column-wrapper):not(.social-column-wrapper) ul').slideUp(300);
+        
+        // Open this column
+        column.addClass('active');
+        column.find('ul').slideDown(300);
+      });
+      
+      // Close all regular columns initially
+      $('.footer-column:not(.contact-column-wrapper):not(.social-column-wrapper) ul').hide();
+      
+    } else {
+      // Remove accordion behavior for desktop
+      $('.footer-column h3').off('click');
+      $('.footer-column').removeClass('active');
+      $('.footer-column ul').show();
+    }
+  }
+  
+  // Initial setup
+  setupFooterAccordion();
+  
+  // Update on window resize
+  let resizeTimer;
+  $(window).on('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      setupFooterAccordion();
+    }, 250);
+  });
+});
+
+
+$(document).ready(function() {
+    const initializeOwlCarousel = () => {
+        const advantagesContainer=$('.services-grid')
+        if (window.innerWidth > 768) {
+            if (typeof advantagesContainer.data('owl.carousel') != 'undefined') {
+                advantagesContainer.data('owl.carousel').destroy();
+              }
+              advantagesContainer.removeClass('owl-carousel');
+            
+        } else if(window.innerWidth <= 768) {
+            if (!$('.services-grid').hasClass('owl-carousel')) {
+                $('.services-grid').addClass('owl-carousel').owlCarousel({
+                    rtl: true,
+                    items: 1,
+                    
+                    dots: true,
+                    loop: true,
+                    // autoplay: true,
+                    // autoplayTimeout: 3000,
+                    // autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 3
+                        },
+                        576: {
+                            items: 4
+                        },
+                        768: {
+                            items: 5
+                        },
+                        1200: {
+                            items: 6
+                        },
+                        
+                    }
+                });
+            }
+        }
+    };
+
+    initializeOwlCarousel();
+    $(window).resize(initializeOwlCarousel);
+
+  
+});

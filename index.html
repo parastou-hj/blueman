@@ -31,21 +31,172 @@
                     <span></span>
                 </div>
                     <div class="additional-actions me-2">
-                         <a href="#" class="language-switcher">
-                            <img src="./images/lang.png" alt="English" class="flag-icon">
-                        </a>
-                        <a href="#" class="cart-link">
-                            <img src="./images/cart.png" alt="">
-                        </a>
+                         <div class="language-switcher-container">
+    <a href="#" class="language-switcher">
+        <img src="./images/lang.png" alt="زبان" class="flag-icon">
+    </a>
+    <!-- زیرمنوی انتخاب زبان -->
+    <ul class="language-submenu">
+        <li class="language-item active">
+            <a href="#" class="language-option">
+                <img src="./images/iran-flag.png" alt="فارسی" class="flag-mini">
+                <span>فارسی</span>
+            </a>
+        </li>
+        <li class="language-item">
+            <a href="#" class="language-option">
+                <img src="./images/uk-flag.png" alt="English" class="flag-mini">
+                <span>English</span>
+            </a>
+        </li>
+    </ul>
+</div>
+                       <div class="cart-container">
+    <a href="#" class="cart-link">
+        <img src="./images/cart.png" alt="سبد خرید">
+        <span class="cart-count">2</span>
+    </a>
+    <!-- زیرمنوی سبد خرید -->
+    <div class="cart-submenu">
+        <div class="cart-header">
+            <h3 class="cart-title">سبد خرید شما</h3>
+            <span class="cart-items-count">2 محصول</span>
+        </div>
+        
+        <div class="cart-items">
+            <!-- محصول اول -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="./images/most-sale1.png" alt="شیر برقی 36 ولت">
+                </div>
+                <div class="cart-item-details">
+                    <h4 class="cart-item-title">شیر برقی 36 ولت</h4>
+                    <div class="cart-item-price">
+                        <span class="item-quantity">1 ×</span>
+                        <span class="item-price">2,550,000</span>
+                        <span class="price-currency">تومان</span>
+                    </div>
+                </div>
+                <button class="remove-item-btn">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- محصول دوم -->
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="./images/most-sale2.png" alt="فیلتر ممبران">
+                </div>
+                <div class="cart-item-details">
+                    <h4 class="cart-item-title">فیلتر ممبران</h4>
+                    <div class="cart-item-price">
+                        <span class="item-quantity">1 ×</span>
+                        <span class="item-price">1,850,000</span>
+                        <span class="price-currency">تومان</span>
+                    </div>
+                </div>
+                <button class="remove-item-btn">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="total-label">مجموع:</span>
+                <div class="total-amount">
+                    <span class="amount">4,400,000</span>
+                    <span class="currency">تومان</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <a href="#" class="view-cart-btn">مشاهده سبد خرید</a>
+                <a href="#" class="checkout-btn">تسویه حساب</a>
+            </div>
+        </div>
+        
+        
+        <div class="empty-cart" style="display: none;">
+            <div class="empty-cart-icon">
+                <i class="fa fa-shopping-basket"></i>
+            </div>
+            <p class="empty-cart-message">سبد خرید شما خالی است</p>
+            <a href="#" class="continue-shopping-btn">ادامه خرید</a>
+        </div>
+    </div>
+</div>
                        
                     </div>
-                    <div href="#" class="user-login me-3">
-                        <a href="#">
-                            <img src="./images/user.png" alt="">
-                        <span>ورود/ </span>       
-                        <span>ثبت نام</span> 
-                        </a>                
+                   <div class="user-container me-2">
+    <div href="#" class="user-login">
+        <a href="#">
+            <img src="./images/user.png" alt="">
+            <span>ورود/ </span>       
+            <span>ثبت نام</span> 
+        </a>
+        <!-- زیرمنوی کاربر -->
+        <div class="user-submenu">
+
+            
+            <div class="user-view" >
+                <div class="user-submenu-header">
+                    <div class="user-avatar">
+                        <img src="./images/user.png" alt="عکس کاربر">
                     </div>
+                    <div class="user-info">
+                        <span class="user-name">علی محمدی</span>
+                        <span class="user-email">ali@example.com</span>
+                    </div>
+                </div>
+                <ul class="user-menu-list">
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>پروفایل من</span>
+                        </a>
+                    </li>
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-shopping-bag"></i>
+                            <span>سفارش‌های من</span>
+                        </a>
+                    </li>
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-heart"></i>
+                            <span>علاقه‌مندی‌ها</span>
+                        </a>
+                    </li>
+                    
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-file-text"></i>
+                            <span>پیگیری سفارش</span>
+                        </a>
+                    </li>
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-address-card"></i>
+                            <span>آدرس‌های من</span>
+                        </a>
+                    </li>
+                    <li class="user-menu-item">
+                        <a href="#">
+                            <i class="fa fa-cog"></i>
+                            <span>تنظیمات</span>
+                        </a>
+                    </li>
+                    <li class="user-menu-item logout">
+                        <a href="#">
+                            <i class="fa fa-sign-out"></i>
+                            <span>خروج از حساب کاربری</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
                 
                 <!-- Logo Container - Center -->
@@ -59,13 +210,160 @@
                 <div class="left-actions col-lg-4 col-12  justify-content-lg-end ps-lg-4 px-0">
                     <!-- Search Form -->
                     <div class="search-container">
-                        <form action="#" method="get" class="search-form">
-                            <input type="text" name="search" placeholder="جست و جو" class="search-input">
-                            <button type="submit" class="search-button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
+    <form action="#" method="get" class="search-form">
+        <input type="text" name="search" placeholder="جست و جو" class="search-input" autocomplete="off">
+        <button type="submit" class="search-button">
+            <i class="fa fa-search"></i>
+        </button>
+        
+        <!-- باکس نتایج جستجو -->
+        <div class="search-results-box">
+            <!-- هدر نتایج جستجو -->
+            <div class="search-results-header">
+                <span class="search-query">نتایج جستجو برای: "فیلتر ممبران"</span>
+                <span class="results-count">12 مورد</span>
+            </div>
+            
+            <!-- بخش پیشنهادات جستجو -->
+            <div class="search-suggestions">
+                <h3 class="search-section-title">پیشنهادهای جستجو</h3>
+                <ul class="suggestions-list">
+                    <li class="suggestion-item">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            <span>فیلتر ممبران خانگی</span>
+                        </a>
+                    </li>
+                    <li class="suggestion-item">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            <span>فیلتر ممبران صنعتی</span>
+                        </a>
+                    </li>
+                    <li class="suggestion-item">
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            <span>قیمت فیلتر ممبران</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- بخش دسته‌بندی‌ها -->
+            <div class="search-categories">
+                <h3 class="search-section-title">دسته‌بندی‌ها</h3>
+                <ul class="categories-list">
+                    <li class="category-result-item">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>فیلتر تصفیه آب</span>
+                            <span class="item-count">8</span>
+                        </a>
+                    </li>
+                    <li class="category-result-item">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>لوازم جانبی تصفیه آب</span>
+                            <span class="item-count">3</span>
+                        </a>
+                    </li>
+                    <li class="category-result-item">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>لوازم یدکی</span>
+                            <span class="item-count">1</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- بخش محصولات -->
+            <div class="search-products">
+                <h3 class="search-section-title">محصولات</h3>
+                <ul class="products-list">
+                    <li class="product-result-item">
+                        <a href="#" class="product-result">
+                            <div class="product-result-image">
+                                <img src="./images/most-sale1.png" alt="فیلتر ممبران 75 گالن">
+                            </div>
+                            <div class="product-result-details">
+                                <h4 class="product-result-title">فیلتر ممبران 75 گالن بلومن</h4>
+                                <div class="product-result-price">
+                                    <span class="price-amount">1,850,000</span>
+                                    <span class="price-currency">تومان</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product-result-item">
+                        <a href="#" class="product-result">
+                            <div class="product-result-image">
+                                <img src="./images/most-sale2.png" alt="فیلتر ممبران 100 گالن">
+                            </div>
+                            <div class="product-result-details">
+                                <h4 class="product-result-title">فیلتر ممبران 100 گالن بلومن</h4>
+                                <div class="product-result-price">
+                                    <span class="price-amount">2,450,000</span>
+                                    <span class="price-currency">تومان</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="product-result-item">
+                        <a href="#" class="product-result">
+                            <div class="product-result-image">
+                                <img src="./images/most-sale3.png" alt="فیلتر ممبران صنعتی">
+                            </div>
+                            <div class="product-result-details">
+                                <h4 class="product-result-title">فیلتر ممبران صنعتی 200 گالن</h4>
+                                <div class="product-result-price">
+                                    <span class="price-amount">3,750,000</span>
+                                    <span class="price-currency">تومان</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- بخش مقالات -->
+            <div class="search-articles">
+                <h3 class="search-section-title">مقالات</h3>
+                <ul class="articles-list">
+                    <li class="article-result-item">
+                        <a href="#">
+                            <i class="fa fa-file-text"></i>
+                            <span>راهنمای تعویض فیلتر ممبران در دستگاه تصفیه آب</span>
+                        </a>
+                    </li>
+                    <li class="article-result-item">
+                        <a href="#">
+                            <i class="fa fa-file-text"></i>
+                            <span>انواع فیلتر ممبران و تفاوت‌های آن‌ها</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- فوتر نتایج جستجو -->
+            <div class="search-results-footer">
+                <a href="#" class="view-all-results">
+                    مشاهده همه نتایج
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            </div>
+            
+            <!-- بخش عدم یافتن نتیجه (پنهان شده) -->
+            <div class="no-results" style="display: none;">
+                <div class="no-results-icon">
+                    <i class="fa fa-search"></i>
+                </div>
+                <p class="no-results-message">نتیجه‌ای برای "عبارت جستجو" یافت نشد</p>
+                
+            </div>
+        </div>
+    </form>
+</div>
                     
                     <!-- Additional Actions -->
                     
@@ -250,9 +548,33 @@
         </div>
     </div>
 </div>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"> خدمات و گارانتی  <i class="fa fa-angle-down"></i></a>
-                    </li>
+                    <div class="nav-item has-submenu">
+    <a href="#" class="nav-link">خدمات و گارانتی <i class="fa fa-angle-down"></i></a>
+    <!-- Submenu Container -->
+    <ul class="submenu">
+        <li class="submenu-item">
+            <a href="#">نصب و راه‌اندازی</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">تعمیر و نگهداری</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">تعویض فیلتر</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">گارانتی محصولات</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">پشتیبانی آنلاین</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">سوالات متداول</a>
+        </li>
+        <li class="submenu-item">
+            <a href="#">دانلود کاتالوگ خدمات</a>
+        </li>
+    </ul>
+</div>
                     <li class="nav-item">
                         <a href="#" class="nav-link">برندها  <i class="fa fa-angle-down"></i></a>
                     </li>
