@@ -17,23 +17,25 @@
 <body>
  <!-- Header Section -->
 <header class="site-header">
-    <div class="container-fluid">
-        <div class="row col-xl-11">
+    <div class="container-fluid position-relative px-0 header-back">
+        <div class="row bg-white px-0 ">
             <!-- Top Header Bar -->
-            <div class="top-header">
+            <div class=" col-xl-11 top-header">
                 <!-- User Actions - Right Side -->
                 <div class="user-actions right-actions">
                     <div class="additional-actions">
+                         <a href="#" class="language-switcher">
+                            <img src="./images/lang.png" alt="English" class="flag-icon">
+                        </a>
                         <a href="#" class="cart-link">
-                            <i class="fa fa-shopping-cart"></i>
+                            <img src="./images/cart.png" alt="">
                         </a>
-                        <a href="#" class="language-switcher">
-                            <img src="./images/uk-flag.png" alt="English" class="flag-icon">
-                        </a>
+                       
                     </div>
-                    <a href="#" class="user-login">
+                    <a href="#" class="user-login me-3">
+                        <img src="./images/user.png" alt="">
                         ورود/ثبت نام
-                        <i class="fa fa-user"></i>
+                        
                     </a>
                 </div>
                 
@@ -62,6 +64,9 @@
             </div>
             
             <!-- Main Navigation -->
+            
+        </div>
+            <div class=" col-xl-11 header-bottom">
             <nav class="main-navigation">
                 <ul class="nav-menu">
                     <li class="nav-item ">
@@ -263,6 +268,7 @@
                     <span></span>
                 </div>
             </nav>
+
         </div>
     </div>
     <!-- منوی موبایل کاملاً استاتیک - تمام ساختار در HTML -->
@@ -892,7 +898,94 @@
             
         </div>
     </section>
-     <section class="articles-section">
+     <div class="container-fluid px-0">
+        <div class="filtration-carousel">
+            <div id="productCarousel" class="carousel slide" data-bs-ride="">
+                <div class="carousel-inner">
+                    <!-- First Slide -->
+                    <div class="carousel-item active">
+                        <div class="slide-container">
+                            <img src="/api/placeholder/1200/500" class="slide-backdrop" alt="Background">
+                            <div class="content-wrapper">
+                                <h2 class="manufacturer-name">Blue</h2>
+                                <p class="product-type">لوازم جانبی تصفیه آب</p>
+                                
+                                <h1 class="product-series">ECO H Pro</h1>
+                                <p class="product-tagline">Deep filtration and softening system with</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    
+                    <!-- Second Slide -->
+                    <div class="carousel-item">
+                        <div class="slide-container">
+                            <img src="/api/placeholder/1200/500" class="slide-backdrop" alt="Background">
+                            <div class="content-wrapper">
+                                <h2 class="manufacturer-name">Blue</h2>
+                                <p class="product-type">تصفیه آب خانگی</p>
+                               
+                                <h1 class="product-series">ECO H Pro</h1>
+                                <p class="product-tagline">Deep filtration and softening system with</p>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <div class="carousel-arrows">
+                    <button class="nav-arrow" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="nav-arrow" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                
+                <!-- Navigation Indicators -->
+                <div class="indicator-row">
+                    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="slide-indicator active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" class="slide-indicator" aria-label="Slide 2"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="container mt-5 pro-baner-sec">
+        <div class="row g-4">
+            <!-- Home Filtration System -->
+            <div class="col-md-6">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h2 class="text-center">Blue</h2>
+                        <p class="rtl-text">تصفیه آب خانگی</p>
+                    </div>
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/320" alt="Home Water Filtration System" class="img-fluid">
+                    </div>
+                    <h1 class="product-title">ECO H Pro</h1>
+                    <p class="product-description">Deep filtration and softening system with</p>
+                </div>
+            </div>
+            
+            <!-- Industrial Filtration System -->
+            <div class="col-md-6">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h2 class="text-center">Blue</h2>
+                        <p class="rtl-text">تصفیه آب نیمه صنعتی</p>
+                    </div>
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/320" alt="Semi-Industrial Water Filtration System" class="img-fluid">
+                    </div>
+                    <h1 class="product-title">ECO H Pro</h1>
+                    <p class="product-description">Deep filtration and softening system with</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     <section class="articles-section my-5 py-5">
         <div class="section-content">
             <div class="">
                 <div class="section-header d-flex justify-content-between align-items-center">
@@ -998,77 +1091,60 @@
       <section class="services-section">
         <div class="container">
             <div class="section-logo">
-                <img src="/api/placeholder/120/120" alt="Blue Men Group Logo">
+                <img src="/images/logo.png" alt="Blue Men Group Logo">
             </div>
             
             <div class="section-header">
                 <h2 class="section-title">با ما بی نظیر شوید</h2>
-                <a href="#" class="section-btn">
-                    دانلود کاتالوگ محصولات
-                    <i class="fa fa-chevron-left"></i>
-                </a>
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <button class="nav-btn">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <span class="btn-label me-2">دانلود کاتالوگ محصولات</span>
+                    
+                  </div>
             </div>
             
             <!-- Desktop Grid -->
             <div class="services-grid">
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            <path d="M12 8v10"/>
-                            <path d="M8 12h8"/>
-                        </svg>
+                       <img src="./images/" alt="">
                     </div>
                     <div class="service-title">گارانتی محصولات</div>
                 </div>
                 
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="3" width="15" height="13" rx="2" ry="2"/>
-                            <path d="M16 8l5 3v11"/>
-                            <path d="M16 19l5 3v-11"/>
-                            <circle cx="5.5" cy="18.5" r="2.5"/>
-                            <circle cx="18.5" cy="18.5" r="2.5"/>
-                        </svg>
-                    </div>
-                    <div class="service-title">ارسال رایگان</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <div class="service-title">پشتیبانی تلفنی</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M7 13l3 3 7-7"/>
-                        </svg>
+                        <img src="./images/ad1.png" alt="">
                     </div>
                     <div class="service-title">امنیت پرداخت</div>
                 </div>
                 
                 <div class="service-item">
                     <div class="service-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 3h18v18H3zM12 3v18M3 12h18"/>
-                            <path d="M7 7v5l2 1 2-3 2 3 2-1V7"/>
-                        </svg>
+                        <img src="./images/ad-2.png" alt="">
+                    </div>
+                    <div class="service-title">ارسال رایگان</div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                       <img src="./images/ad-3.png" alt="">
+                    </div>
+                    <div class="service-title">پشتیبانی تلفنی</div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-icon">
+                        <img src="./images/ad-4.png" alt="">
                     </div>
                     <div class="service-title">خدمات پس از فروش</div>
                 </div>
             </div>
             
             <!-- Mofale Carousel -->
-            <div class="services-carousel owl-carousel">
+            <!-- <div class="services-carousel owl-carousel">
                 <div class="service-item">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1123,37 +1199,18 @@
                     </div>
                     <div class="service-title">خدمات پس از فروش</div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
     </main>
-     <footer class="footer-section">
-        <div class="container">
-            <div class="footer-content">
-                <!-- تماس با ما Column -->
-                <div class="footer-column large">
-                    <div class="contact-column">
-                        <h3>تماس با ما</h3>
-                        <div class="location-icon">
-                            <i class="fa fa-geo-alt"></i>
-                        </div>
-                        <div class="contact-info">
-                            <p>۷ روز هفته از ساعت ۹ الی ۲۰</p>
-                            <p>تلفن پشتیبانی:</p>
-                            <div class="phone-numbers">
-                                ۰۲۱-۳۶ ۲۵۰ ۳۸۶ | ۰۲۱-۳۶ ۲۵۵ ۸۷۵
-                            </div>
-                            <p>آدرس:</p>
-                            <p>اصفهان،اتوبان خیام، بعد از بوستان فرشتگان،</p>
-                            <p>بن بست ۱، ساختمان سکاش</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- دسته‌بندی‌ها Column -->
+     <footer class="footer-section ">
+        <div class="container-fluid py-5">
+           <div class="row col-xl-11">
+             <div class="footer-content">
+                  <!-- چرا بلومن Column -->
                 <div class="footer-column">
-                    <h3>دسته‌بندی‌ها</h3>
+                    <h3>چرا بلومن</h3>
                     <ul>
                         <li><a href="#">تماس با ما</a></li>
                         <li><a href="#">درباره ما</a></li>
@@ -1162,7 +1219,7 @@
                         <li><a href="#">قیمت های معقولی</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- درباره بلومن Column -->
                 <div class="footer-column">
                     <h3>درباره بلومن</h3>
@@ -1174,18 +1231,40 @@
                         <li><a href="#">جریم تخصوصی</a></li>
                     </ul>
                 </div>
-
-                <!-- چرا بلومن Column -->
+                     <!-- درباره بلومن Column -->
                 <div class="footer-column">
-                    <h3>چرا بلومن</h3>
+                    <h3>درباره بلومن</h3>
                     <ul>
-                        <li><a href="#">تماس با ما</a></li>
-                        <li><a href="#">درباره ما</a></li>
-                        <li><a href="#">مجتمع بلومن</a></li>
-                        <li><a href="#">شرایط و قوانین</a></li>
-                        <li><a href="#">قیمت های معقولی</a></li>
+                        <li><a href="#">پرسشهای متداول</a></li>
+                        <li><a href="#">راهنمای خرید</a></li>
+                        <li><a href="#">شرایط بازگشت کالا</a></li>
+                        <li><a href="#">ثبت شکایات</a></li>
+                        <li><a href="#">جریم تخصوصی</a></li>
                     </ul>
                 </div>
+                <!-- تماس با ما Column -->
+                <div class="footer-column large">
+                    <div class="contact-column">
+                        <h3>تماس با ما</h3>
+                       <div class="d-flex">
+                         <div class="location-icon d-flex flex-column justify-content-around">
+                            <i class="fa fa-location"></i>
+                             <i class="fa fa-location"></i>
+                        </div>
+                        <div class="contact-info">
+                            <p>۷ روز هفته از ساعت ۹ الی ۲۰</p>
+                            <p>تلفن پشتیبانی:</p>
+                            <div class="phone-numbers">
+                                860 200 36 -031 | 64 29 20 36 -031
+                            </div>
+                            <p>آدرس:</p>
+                            <p>اصفهان،اتوبان خیام، بعد از بوستان فرشتگان، بن بست 22، ساختمان ستایش</p>
+                            
+                        </div>
+                       </div>
+                    </div>
+                </div>
+
 
                 <!-- همراه ما باشید Column -->
                 <div class="footer-column large">
@@ -1201,10 +1280,21 @@
                     </div>
                 </div>
             </div>
+           </div>
         </div>
-          <section class="footer-bottom">
-        <div class="container">
-            <div class="footer-bottom-content">
+          <div class="footer-bottom">
+        <div class="container-fluid">
+            <div class="row col-xl-11">
+                <div class="footer-bottom-content">
+                
+                
+                <div class="footer-text">
+                    <h3>BLUE MEN GROUP</h3>
+                    <p>
+                        در جهان کنونی با رویکردهای رو به رشد سریع علوم و فناوری در انواع رشته های گوناگون، سیر رشد انواع کسب کار با رشد سریع نیازمندیهای گسترده مردم و بر طرف کردن معقولات رو به رشد، بازارهای مختلف در حال شکل گیری سریعتر از حد تصورات است؛ پروژه نیازمندیهای گسترده تخصص های خاص خود را طلب میکند و اگر در پی گشودن... <a href="#">مشاهده بیشتر »</a>
+                    </p>
+                    
+                </div>
                 <div class="footer-logos">
                     <div class="footer-logo-item">
                         <img src="/api/placeholder/80/50" alt="نماد اعتماد الکترونیک">
@@ -1213,14 +1303,7 @@
                         <img src="/api/placeholder/80/50" alt="نماد کسب و کار مجازی">
                     </div>
                 </div>
-                
-                <div class="footer-text">
-                    <h3>BLUE MEN GROUP</h3>
-                    <p>
-                        در جهان کنونی با رویکردهای رو به رشد سریع علوم و فناوری در انواع رشته های گوناگون، سیر رشد انواع کسب کار با رشد سریع نیازمندیهای گسترده مردم و بر طرف کردن معقولات رو به رشد، بازارهای مختلف در حال شکل گیری سریعتر از حد تصورات است؛ پروژه نیازمندیهای گسترده تخصص های خاص خود را طلب میکند و اگر در پی گشودن
-                    </p>
-                    <a href="#">مشاهده بیشتر »</a>
-                </div>
+            </div>
             </div>
         </div>
         
@@ -1228,12 +1311,12 @@
         <div class="back-to-top" onclick="scrollToTop()">
             <i class="fa fa-chevron-up"></i>
         </div>
-    </section>
+          </div>
     
     <!-- Copyright Bar -->
     <div class="copyright-bar">
         <div class="container">
-            <p>© کلیه حقوق این سایت متعلق به شرکت پلو من می باشد.</p>
+            <p>© کلیه حقوق این سایت متعلق به شرکت <a href="#">بلو من</a> می باشد.</p>
         </div>
     </div>
     </footer>

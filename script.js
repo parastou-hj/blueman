@@ -356,7 +356,7 @@ $(function () {
                         stagePadding: 80
                     },
                     1200: {
-                        items: 3.5,
+                        items: 3,
                         stagePadding: 100
                     },
                     1400: {
