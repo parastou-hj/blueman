@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="./css/owl.carousel.min.css">
     <link rel="stylesheet" href="./css/owl.theme.default.min.css">
         <script src="https://kit.fontawesome.com/f595c78486.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./query.css">
+
     <title>بلومن</title>
     
     
@@ -18,12 +19,18 @@
  <!-- Header Section -->
 <header class="site-header">
     <div class="container-fluid position-relative px-0 header-back">
-        <div class="row bg-white px-0 ">
+        <div class="container-fluid bg-white px-0 ">
             <!-- Top Header Bar -->
-            <div class=" col-xl-11 top-header">
+            <div class="row col-xl-11 top-header">
                 <!-- User Actions - Right Side -->
-                <div class="user-actions right-actions">
-                    <div class="additional-actions">
+                <div class="user-actions right-actions col-lg-4 col-9">
+                     <!-- Mobile Menu Toggle -->
+                <div class="mobile-menu-toggle ms-2">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                    <div class="additional-actions me-2">
                          <a href="#" class="language-switcher">
                             <img src="./images/lang.png" alt="English" class="flag-icon">
                         </a>
@@ -32,22 +39,24 @@
                         </a>
                        
                     </div>
-                    <a href="#" class="user-login me-3">
-                        <img src="./images/user.png" alt="">
-                        ورود/ثبت نام
-                        
-                    </a>
+                    <div href="#" class="user-login me-3">
+                        <a href="#">
+                            <img src="./images/user.png" alt="">
+                        <span>ورود/ </span>       
+                        <span>ثبت نام</span> 
+                        </a>                
+                    </div>
                 </div>
                 
                 <!-- Logo Container - Center -->
-                <div class="logo-container">
+                <div class="logo-container justify-content-end justify-content-lg-center col-lg-4 col-3">
                     <a href="index.html">
                         <img src="./images/logo.png" alt="Blue Men Group Logo" class="site-logo">
                     </a>
                 </div>
                 
                 <!-- Search and Additional Actions - Left Side -->
-                <div class="left-actions">
+                <div class="left-actions col-lg-4 col-12  justify-content-lg-end ps-lg-4 px-0">
                     <!-- Search Form -->
                     <div class="search-container">
                         <form action="#" method="get" class="search-form">
@@ -66,7 +75,7 @@
             <!-- Main Navigation -->
             
         </div>
-            <div class=" col-xl-11 header-bottom">
+            <div class=" col-xl-11 col-12 header-bottom">
             <nav class="main-navigation">
                 <ul class="nav-menu">
                     <li class="nav-item ">
@@ -261,12 +270,7 @@
                     </li>
                 </ul>
                 
-                <!-- Mobile Menu Toggle -->
-                <div class="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+               
             </nav>
 
         </div>
@@ -543,7 +547,7 @@
                     <div class="col-lg-8 content-wrapper">
                         <div class="text-content">
                             <div class="section-header">
-                                <h2>برند دتنفیت، شرکت کهن پلومن</h2>
+                                <h2>برند دنتفیت، شرکت کهن بلو من</h2>
                                 </div>
                             <p>
                                 در جهان کنونی با رویکردهای رو به رشد سریع علوم و فناوری در انواع رشته های گوناگون، سیر رشد انواع کسب کار و انتقام صاحبان کسب کار با رشد سریع نیازمندیهای گسترده مردم و یر طوف کردن معقولات رو به رشد، بازارهای مختلف در حال شکل گیری سریعتر از حد تصورات است؛ پروژه نیازمندهای گسترده تخصص های خاص خود را طلب میکند و اگر در پی گشودن گره های امروز با راهکارهای فرسوده گذشته باشیم به توان پاسخ به نیازمندی امروز را خواهیم داشت که دیوان ماندگاری در بازار در رقابت با روند رو به رشد رقبا، شرکت 
@@ -551,7 +555,7 @@
                                 <span class="brand-name">BLUEMEN</span> 
                                 به ظور مداوم به دنبال راهکارهای اساسی برای تغییرسطح کیفی محصولات شما هستند.
                             </p>
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center mt-5">
                                 <button class="view-more-btn">
                                     <i class="fa fa-chevron-left"></i>
                                 </button>
@@ -562,7 +566,7 @@
                         
                        
                     </div>
-                    <div class="col-lg-4 ">
+                    <div class="col-lg-4 d-flex justify-content-center align-items-center ">
                         <div class="circular-image">
                             <img src="./images/about-img.png" alt="تصویر طبیعت دریا و جنگل">
                         </div>
@@ -572,26 +576,26 @@
                 </div>
             </div>
     </section>
-    <section class="produtcs-sec">
-        <div class="container-fluid px-0">
-            <div class="row col-xl-11">
-
-            </div>
-        </div>
-    </section>
-    <section class="categories-section">
+    
+    <section class="categories-section px-0">
         <div class="container-fluid">
            <div class="row col-xl-11">
-             <div class="section-header section-header d-flex justify-content-between align-items-center">
-                <h2>دسته بندی های محصولات</h2>
-                <p class="section-subtitle">بلو من</p>
-                <span class="btn-label">مشاهده همه محصولات</span>
-                <button class="more-btn">
-                    <i class="fa fa-chevron-right"></i>
+             <div class="section-header d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="section-subtitle">بلو من</p>
+                    <h2>دسته بندی های محصولات</h2>
+                
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="more-btn">
+                    <i class="fa fa-chevron-left"></i>
                 </button>
+                    <span class="btn-label me-2">مشاهده همه محصولات</span>
+                
+                </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row px-0 g-4">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="category-card">
                         <div class="category-image-wrapper">
@@ -724,8 +728,9 @@
         </div>
     </section>
      <section class="bestseller-section">
-        <div class="container">
-            <div class="section-header d-flex justify-content-between align-items-center">
+        <div class="container-fluid">
+            <div class="row col-xl-11">
+                <div class="section-header d-flex justify-content-between align-items-center">
                 <div>
                     <p class="section-subtitle">لوازم جانبی</p>
                     <h2>پرفروشترین ها</h2>
@@ -824,9 +829,10 @@
                   </a>
                 </div>
             </div>
+            </div>
         </div>
     </section>
-     <section class="brands-section">
+     <section class="brands-section mt-2 mb-4">
         <div class="container-fluid px-0">
           <div class="row col-xl-11">
             <div class="section-header ">
@@ -952,8 +958,8 @@
             </div>
         </div>
     </div>
-     <div class="container mt-5 pro-baner-sec">
-        <div class="row g-4">
+     <div class="container-fluid px-0 mt-5 pro-baner-sec">
+        <div class="row col-xl-11 g-4">
             <!-- Home Filtration System -->
             <div class="col-md-6">
                 <div class="product-card">
@@ -985,7 +991,7 @@
             </div>
         </div>
     </div>
-     <section class="articles-section my-5 py-5">
+     <section class="articles-section my-lg-5 my-2 py-5">
         <div class="section-content">
             <div class="">
                 <div class="section-header d-flex justify-content-between align-items-center">
@@ -1088,58 +1094,62 @@
             </div>
         </div>
     </section>
-      <section class="services-section">
-        <div class="container">
-            <div class="section-logo">
-                <img src="/images/logo.png" alt="Blue Men Group Logo">
-            </div>
+      <section class="services-section mb-3">
+        <div class="container-fluid">
+            <div class="row col-xl-11">
+               <div class="d-flex align-items-center justify-content-between d-lg-block">
+                 <div class="section-logo">
+                  <img src="/images/logo.png" alt="Blue Men Group Logo">
+                </div>
             
-            <div class="section-header">
-                <h2 class="section-title">با ما بی نظیر شوید</h2>
-                <div class="d-flex align-items-center justify-content-center mt-3">
-                    <button class="nav-btn">
-                        <i class="fa fa-chevron-left"></i>
-                    </button>
-                    <span class="btn-label me-2">دانلود کاتالوگ محصولات</span>
-                    
-                  </div>
-            </div>
+                <div class="section-header">
+                    <h2 class="section-title">با ما بی نظیر شوید</h2>
+                    <div class="d-flex align-items-center justify-content-center mt-3">
+                        <button class="nav-btn">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <span class="btn-label me-2">دانلود کاتالوگ محصولات</span>
+                        
+                    </div>
+                </div>
+               </div>
             
             <!-- Desktop Grid -->
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="service-icon">
-                       <img src="./images/" alt="">
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">
+                        <img src="./images/" alt="">
+                        </div>
+                        <div class="service-title">گارانتی محصولات</div>
                     </div>
-                    <div class="service-title">گارانتی محصولات</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <img src="./images/ad1.png" alt="">
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./images/ad1.png" alt="">
+                        </div>
+                        <div class="service-title">امنیت پرداخت</div>
                     </div>
-                    <div class="service-title">امنیت پرداخت</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <img src="./images/ad-2.png" alt="">
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./images/ad-2.png" alt="">
+                        </div>
+                        <div class="service-title">ارسال رایگان</div>
                     </div>
-                    <div class="service-title">ارسال رایگان</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                       <img src="./images/ad-3.png" alt="">
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                        <img src="./images/ad-3.png" alt="">
+                        </div>
+                        <div class="service-title">پشتیبانی تلفنی</div>
                     </div>
-                    <div class="service-title">پشتیبانی تلفنی</div>
-                </div>
-                
-                <div class="service-item">
-                    <div class="service-icon">
-                        <img src="./images/ad-4.png" alt="">
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <img src="./images/ad-4.png" alt="">
+                        </div>
+                        <div class="service-title">خدمات پس از فروش</div>
                     </div>
-                    <div class="service-title">خدمات پس از فروش</div>
                 </div>
             </div>
             

@@ -262,7 +262,7 @@ $(function () {
                         items: 2
                     },
                     768: {
-                        items: 3
+                        items: 3.5
                     },
                     992: {
                         items: 4
@@ -293,7 +293,7 @@ $(function () {
             $('.brands-carousel').owlCarousel({
                 rtl: true,
                 loop: true,
-                margin: 20,
+                margin: 10,
                 nav: true,
                 dots: true,
                 autoplay: true,
@@ -302,22 +302,22 @@ $(function () {
                 smartSpeed: 1000,
                 responsive: {
                     0: {
-                        items: 1
+                        items:3
                     },
                     576: {
-                        items: 2
-                    },
-                    768: {
-                        items: 3
-                    },
-                    992: {
                         items: 4
                     },
-                    1200: {
+                    768: {
                         items: 5
                     },
-                    1400: {
+                    992: {
                         items: 6
+                    },
+                    1200: {
+                        items: 7
+                    },
+                    1400: {
+                        items: 7
                     }
                 }
             });
@@ -348,7 +348,7 @@ $(function () {
                         stagePadding: 50
                     },
                     768: {
-                        items: 2.2,
+                        items: 1.8,
                         stagePadding: 70
                     },
                     992: {
@@ -477,33 +477,28 @@ function convertToPersianNumbers() {
     convert(document.body);
 }
 
-// اجرای تابع بعد از بارگذاری صفحه
+
 document.addEventListener('DOMContentLoaded', convertToPersianNumbers);
-// کد JavaScript ساده برای منوی موبایل استاتیک
-// این کد فقط رفتار منو را کنترل می‌کند و هیچ المنتی نمی‌سازد
+
 $(document).ready(function() {
-    // 1. باز و بسته کردن منوی موبایل
     $('.mobile-menu-toggle').on('click', function() {
         $('.mobile-side-menu').addClass('active');
         $('.mobile-menu-overlay').addClass('active');
         $('body').addClass('menu-open');
     });
     
-    // 2. بستن منوی موبایل
     $('.mobile-menu-close, .mobile-menu-overlay').on('click', function() {
         $('.mobile-side-menu').removeClass('active');
         $('.mobile-menu-overlay').removeClass('active');
         $('body').removeClass('menu-open');
     });
     
-    // 3. باز و بسته کردن منوی اصلی
     $('.mobile-side-menu .nav-item.has-megamenu > .nav-link').on('click', function(e) {
         e.preventDefault();
         $(this).parent().toggleClass('active');
         $(this).find('.dropdown-indicator i').toggleClass('fa-chevron-down fa-chevron-up');
     });
     
-    // 4. باز و بسته کردن زیرمنوهای دسته‌بندی
     $('.mobile-category-item > a').on('click', function(e) {
         e.preventDefault();
         const $parent = $(this).parent();
@@ -522,7 +517,6 @@ $(document).ready(function() {
         }
     });
     
-    // 5. نمایش/عدم نمایش منوی موبایل در هنگام تغییر اندازه صفحه
     $(window).on('resize', function() {
         if (window.innerWidth > 991) {
             $('.mobile-side-menu').removeClass('active');

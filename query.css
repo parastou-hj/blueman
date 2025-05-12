@@ -1,0 +1,53 @@
+@media  screen and (max-width:1200px) {
+    .header-bottom{
+        width: 100% !important;
+    }
+    
+.circular-image {
+    width: 300px !important;
+    height: 300px !important;
+}
+.service-item{
+    width: auto;
+}
+
+}
+
+@media  screen and (max-width:992px) {
+
+    .search-container {
+    width: 100%;
+    max-width:100%;
+    margin-top: 10px;
+    padding: 0px;
+}
+.search-input {
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+.header-back{
+    /* height:180px */
+}
+.logo-container {
+    height: 100px;
+}
+.logo-container img{
+    width: 100%;
+    height: 100%;
+}
+.category-image img {
+    position: absolute;
+    top: -20px;
+    left: 45%;
+    transform: translateX(-50px);
+    z-index: 1;
+    width: 125px;
+    height: 170px;
+}
+.product-image {
+    height: 160px;
+}
+.article-card {
+    height: 240px;
+}
+}
