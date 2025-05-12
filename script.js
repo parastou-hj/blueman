@@ -205,12 +205,12 @@ $(function () {
       },
     });
   });
-  $(".nav-right").click(function () {
-    $("#banner-owl").trigger("prev.owl.carousel");
+  $(".baner-prev").click(function () {
+    $("#baner-owl").trigger("prev.owl.carousel");
   });
   
-  $(".nav-left").click(function () {
-    $("#banner-owl").trigger("next.owl.carousel");
+  $(".baner-next").click(function () {
+    $("#baner-owl").trigger("next.owl.carousel");
   });
 
 
@@ -360,7 +360,7 @@ $(function () {
                         stagePadding: 100
                     },
                     1400: {
-                        items: 4,
+                        items: 3,
                         stagePadding: 120
                     }
                 }
