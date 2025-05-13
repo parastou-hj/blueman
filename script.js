@@ -256,7 +256,7 @@ $(function () {
                 autoplayHoverPause: true,
                 responsive: {
                     0: {
-                        items: 1
+                        items: 2
                     },
                     576: {
                         items: 2
@@ -316,9 +316,7 @@ $(function () {
                     1200: {
                         items: 7
                     },
-                    1400: {
-                        items: 7
-                    }
+                    
                 }
             });
         });
@@ -331,7 +329,7 @@ $(function () {
                 loop: true,
                 // margin: 20,
                 nav: false,
-                dots: true,
+                dots: false,
                 center: true,
                 autoplay: true,
                 autoplayTimeout: 5000,
@@ -340,7 +338,7 @@ $(function () {
                 stagePadding: 100,
                 responsive: {
                     0: {
-                        items: 1,
+                        items: 1.2,
                         stagePadding: 30
                     },
                     576: {
@@ -352,8 +350,8 @@ $(function () {
                         stagePadding: 70
                     },
                     992: {
-                        items: 3,
-                        stagePadding: 80
+                        items: 2.7,
+                        stagePadding: 70
                     },
                     1200: {
                         items: 3,
@@ -377,75 +375,75 @@ $(function () {
         });
 
 
-  $(document).ready(function(){
-            // Initialize carousel only on mobile
-            if (window.innerWidth <= 767) {
-                $('.services-carousel').owlCarousel({
-                    rtl: true,
-                    loop: true,
-                    margin: 20,
-                    nav: false,
-                    dots: true,
-                    autoplay: true,
-                    autoplayTimeout: 4000,
-                    autoplayHoverPause: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        400: {
-                            items: 1.5,
-                            center: true
-                        },
-                        576: {
-                            items: 2,
-                            center: false
-                        }
-                    }
-                });
-            }
+//   $(document).ready(function(){
+//             // Initialize carousel only on mobile
+//             if (window.innerWidth <= 767) {
+//                 $('.services-carousel').owlCarousel({
+//                     rtl: true,
+//                     loop: true,
+//                     margin: 20,
+//                     nav: false,
+//                     dots: true,
+//                     autoplay: true,
+//                     autoplayTimeout: 4000,
+//                     autoplayHoverPause: true,
+//                     responsive: {
+//                         0: {
+//                             items: 1
+//                         },
+//                         400: {
+//                             items: 1.5,
+//                             center: true
+//                         },
+//                         576: {
+//                             items: 2,
+//                             center: false
+//                         }
+//                     }
+//                 });
+//             }
             
-            // Reinitialize on window resize
-            let resizeTimer;
-            $(window).resize(function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    if (window.innerWidth <= 767) {
-                        if (!$('.services-carousel').hasClass('owl-loaded')) {
-                            $('.services-carousel').owlCarousel({
-                                rtl: true,
-                                loop: true,
-                                margin: 20,
-                                nav: false,
-                                dots: true,
-                                autoplay: true,
-                                autoplayTimeout: 4000,
-                                autoplayHoverPause: true,
-                                responsive: {
-                                    0: {
-                                        items: 1
-                                    },
-                                    400: {
-                                        items: 1.5,
-                                        center: true
-                                    },
-                                    576: {
-                                        items: 2,
-                                        center: false
-                                    }
-                                }
-                            });
-                        }
-                    } else {
-                        if ($('.services-carousel').hasClass('owl-loaded')) {
-                            $('.services-carousel').trigger('destroy.owl.carousel');
-                            $('.services-carousel').find('.owl-stage-outer').children().unwrap();
-                            $('.services-carousel').removeClass("owl-loaded owl-drag");
-                        }
-                    }
-                }, 250);
-            });
-        });
+//             // Reinitialize on window resize
+//             let resizeTimer;
+//             $(window).resize(function() {
+//                 clearTimeout(resizeTimer);
+//                 resizeTimer = setTimeout(function() {
+//                     if (window.innerWidth <= 767) {
+//                         if (!$('.services-carousel').hasClass('owl-loaded')) {
+//                             $('.services-carousel').owlCarousel({
+//                                 rtl: true,
+//                                 loop: true,
+//                                 margin: 20,
+//                                 nav: false,
+//                                 dots: true,
+//                                 autoplay: true,
+//                                 autoplayTimeout: 4000,
+//                                 autoplayHoverPause: true,
+//                                 responsive: {
+//                                     0: {
+//                                         items: 1
+//                                     },
+//                                     400: {
+//                                         items: 1.5,
+//                                         center: true
+//                                     },
+//                                     576: {
+//                                         items: 2,
+//                                         center: false
+//                                     }
+//                                 }
+//                             });
+//                         }
+//                     } else {
+//                         if ($('.services-carousel').hasClass('owl-loaded')) {
+//                             $('.services-carousel').trigger('destroy.owl.carousel');
+//                             $('.services-carousel').find('.owl-stage-outer').children().unwrap();
+//                             $('.services-carousel').removeClass("owl-loaded owl-drag");
+//                         }
+//                     }
+//                 }, 250);
+//             });
+//         });
 
          function scrollToTop() {
             window.scrollTo({
@@ -619,6 +617,9 @@ $(document).ready(function() {
                         0: {
                             items: 3
                         },
+                        480: {
+                            items: 3.5
+                        },
                         576: {
                             items: 4
                         },
@@ -640,3 +641,27 @@ $(document).ready(function() {
 
   
 });
+
+
+    $(document).ready(function () {
+       if (window.innerWidth> 992){
+        var $logo = $('.site-logo');
+        
+
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 100) {
+                $logo.addClass('shrink');
+                $('.top-header').addClass('header-shrink')
+                $('.header-back').addClass('header-back-shrink')
+                
+            } else {
+                $logo.removeClass('shrink');
+                $('.top-header').removeClass('header-shrink')
+                $('.header-back').removeClass('header-back-shrink')
+            }
+        });
+       }
+    });
+
+
+
