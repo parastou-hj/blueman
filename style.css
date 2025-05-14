@@ -1101,11 +1101,105 @@ body {
     position: absolute;
     bottom: 70px;
     right: 70px;
-    z-index: 1;
+    z-index: 2;
     background-color: var(--primary-color);
     color: #fff;
     padding: 10px 25px;
     border-radius: 12px;
+}
+.motion-baner-item{
+    height: 600px;
+}
+.motion-baner-back{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.baner-item-main-img{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25%;
+    width: 50%;
+    height: 600px;
+}
+.baner-item-main-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.baner-right-flesh1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    right: 35%;
+}
+.baner-left-flesh1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 35%;
+}
+.baner-right-flesh2{
+    position: absolute;
+    top: 65%;
+    transform: translateY(-12.5%);
+    right: 35%;
+}
+.baner-left-flesh2{
+    position: absolute;
+    top: 65%;
+    transform: translateY(-12.5%);
+    left: 35%;
+}
+.baner-right-img1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    right: 30%;
+}
+.baner-left-img1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 30%;
+}
+.baner-right-img2{
+    position: absolute;
+    top: 65%;
+    transform: translateY(-12.5%);
+    right: 30%;
+}
+.baner-left-img2{
+    position: absolute;
+    top: 65%;
+    transform: translateY(-12.5%);
+    left: 30%;
+}
+.baner-rigth-txt1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    right: 22%;
+}
+.baner-left-txt1{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 18%;
+}
+
+.baner-rigth-txt2{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-12%);
+    right: 22%;
+}
+.baner-left-txt2{
+    position: absolute;
+    top: 68%;
+    transform: translateY(-12%);
+    left: 22%;
 }
 .baner-sec{
     /* margin-top: -40px; */
