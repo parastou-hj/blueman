@@ -184,27 +184,7 @@ $(document).ready(function() {
 
 
 
-$(function () {
-    $("#baner-owl").owlCarousel({
-      rtl: true,
-      items: 1,
-      // nav: true,
-      dots: false,
-      loop: true,
-      autoplay: true,
-      autoplayTimeout: 4000,
-      autoplayHoverPause: true,
-      // navText: [
-      //     '<i class="fa-solid fa-chevron-right"></i>',
-      //     '<i class="fa-solid fa-chevron-left"></i>'
-      // ],
-      responsive: {
-        0: {
-          items: 1,
-        },
-      },
-    });
-  });
+
   $(".baner-prev").click(function () {
     $("#baner-owl").trigger("prev.owl.carousel");
   });
@@ -643,31 +623,11 @@ $(document).ready(function() {
 });
 
 
-    $(document).ready(function () {
-       if (window.innerWidth> 992){
-        var $logo = $('.site-logo');
-        
-
-        $(window).on('scroll', function () {
-            if ($(this).scrollTop() > 100) {
-                $logo.addClass('shrink');
-                $('.top-header').addClass('header-shrink')
-                $('.header-back').addClass('header-back-shrink')
-                
-            } else {
-                $logo.removeClass('shrink');
-                $('.top-header').removeClass('header-shrink')
-                $('.header-back').removeClass('header-back-shrink')
-            }
-        });
-       }
-    });
-
-
 
 $(document).ready(function() {
   
-    // Scroll event handler
+   if(window.innerWidth >992){
+     // Scroll event handler
     $(window).on('scroll', function() {
         if ($(this).scrollTop() > 30) {
             $('body').addClass('header-scroll-active');
@@ -680,6 +640,8 @@ $(document).ready(function() {
     if ($(window).scrollTop() > 30) {
         $('body').addClass('header-scroll-active');
     }
+
+   }
 });
 $(document).ready(function() {
     // ابتدا کلاس‌های انیمیشن را از عناصر برمی‌داریم تا با اسکرول فعال شوند
@@ -737,5 +699,53 @@ $(document).ready(function() {
             // حذف استایل‌های inline برای اجازه دادن به انیمیشن‌های CSS
             $('.owl-item.active .baner-buble, .owl-item.active .baner-txt').removeAttr('style');
         }
+    });
+});
+
+$(document).ready(function() {
+    // Select all banner items in the owl-baner carousel
+    const banerItems = $('#baner-owl .baner-item');
+    
+    // For each banner item, add mouse movement tracking
+    banerItems.each(function() {
+        const item = $(this);
+        const txt = item.find('.baner-txt');
+        const bubbles = item.find('.baner-buble');
+        
+        // Mouse enter event - prepare for hover animations
+        item.on('mouseenter', function() {
+            txt.css('transition', 'transform 0.1s ease-out');
+            bubbles.css('transition', 'transform 0.2s ease-out');
+        });
+        
+        // Mouse move event - apply the parallax effect
+        item.on('mousemove', function(e) {
+            // Calculate mouse position relative to the item
+            const rect = this.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left; // X position within the element
+            const mouseY = e.clientY - rect.top;  // Y position within the element
+            
+            // Calculate percentage position (-50 to 50 for a moderate effect)
+            const xPercent = ((mouseX / rect.width) - 0.5) * 100;
+            const yPercent = ((mouseY / rect.height) - 0.5) * 100;
+            
+            // Apply transform to text - subtle movement opposite to mouse direction
+            txt.css('transform', `translate(${-xPercent * 0.5}px, ${-yPercent * 0.3}px)`);
+            
+            // Apply transform to each bubble - more dramatic movement
+            bubbles.each(function(index) {
+                // Make each bubble move slightly differently for a more dynamic effect
+                const factor = 1 + (index * 0.3);
+                $(this).css('transform', `translate(${xPercent * factor}px, ${yPercent * factor}px)`);
+            });
+        });
+        
+        // Mouse leave event - reset positions smoothly
+        item.on('mouseleave', function() {
+            txt.css('transition', 'transform 0.5s ease-out');
+            bubbles.css('transition', 'transform 0.5s ease-out');
+            txt.css('transform', 'translate(0, 0)');
+            bubbles.css('transform', 'translate(0, 0)');
+        });
     });
 });
