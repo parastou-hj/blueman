@@ -452,7 +452,7 @@ $(function () {
             });
         }
 
-        // در انتهای فایل HTML، قبل از تگ بسته </body>
+  
 
 function convertToPersianNumbers() {
     const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
@@ -665,3 +665,19 @@ $(document).ready(function() {
 
 
 
+$(document).ready(function() {
+  
+    // Scroll event handler
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 100) {
+            $('body').addClass('header-scroll-active');
+        } else {
+            $('body').removeClass('header-scroll-active');
+        }
+    });
+    
+    // Initial check (in case page loads with scroll already past threshold)
+    if ($(window).scrollTop() > 100) {
+        $('body').addClass('header-scroll-active');
+    }
+});
