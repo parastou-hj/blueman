@@ -331,8 +331,9 @@ body {
 .megamenu-container {
     position: absolute;
     top: 100%;
-    right: 0;
-    left: 0;
+    width: 95%;
+    right: 2.5%;
+    
     background-color: #ffffff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 10px 10px;
@@ -1093,9 +1094,87 @@ body {
 
 }   
 .baner-buble{
-    width: 20px !important;
-    height: 20px;
-}    
+    width: 40px !important;
+    height: 40px;
+} 
+/* Strategic positioning for each bubble */
+.baner-item .buble-1 {
+    position: absolute;
+    top: 35%;
+    left: 55%;
+    z-index: 2;
+    opacity: 0;
+}
+
+.baner-item .buble-2 {
+    position: absolute;
+    top: 45%;
+    right: 30%;
+    z-index: 2;
+    opacity: 0;
+}
+
+.baner-item .buble-3 {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    z-index: 2;
+    opacity: 0;
+}
+
+/* Animation keyframes for bubbles */
+@keyframes bubbleAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation keyframes for text */
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Initial state for banner text */
+.baner-item .baner-txt {
+    opacity: 0;
+}
+
+/* Animation states for active slide */
+.owl-item.active .baner-txt {
+    animation: textAppear 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.owl-item.active .buble-1 {
+    animation: bubbleAppear 0.7s ease forwards;
+    animation-delay: 1s;
+}
+
+.owl-item.active .buble-2 {
+    animation: bubbleAppear 0.7s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.owl-item.active .buble-3 {
+    animation: bubbleAppear 0.7s ease forwards;
+    animation-delay: 2.2s;
+}   
 
 .baner-owl-two .baner-img{
     width: 100%;

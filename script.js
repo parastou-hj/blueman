@@ -669,7 +669,7 @@ $(document).ready(function() {
   
     // Scroll event handler
     $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 100) {
+        if ($(this).scrollTop() > 30) {
             $('body').addClass('header-scroll-active');
         } else {
             $('body').removeClass('header-scroll-active');
@@ -677,7 +677,7 @@ $(document).ready(function() {
     });
     
     // Initial check (in case page loads with scroll already past threshold)
-    if ($(window).scrollTop() > 100) {
+    if ($(window).scrollTop() > 30) {
         $('body').addClass('header-scroll-active');
     }
 });
@@ -706,5 +706,36 @@ $(document).ready(function() {
     // همه baner-item ها را تحت نظارت قرار می‌دهیم
     $('.motion-baner-item').each(function() {
         observer.observe(this);
+    });
+});
+
+$(document).ready(function() {
+    // تنظیمات owl carousel
+    $("#baner-owl").owlCarousel({
+        rtl: true,
+        items: 1,
+        dots: false,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 6000, // افزایش زمان برای اتمام انیمیشن‌ها
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        },
+        onTranslated: function() {
+            // ریست کردن انیمیشن‌ها برای همه آیتم‌ها
+            $('.baner-buble, .baner-txt').css({
+                'animation': 'none',
+                'opacity': '0'
+            });
+            
+            // اجبار به بازسازی DOM برای شروع مجدد انیمیشن‌ها
+            $('.owl-item.active .baner-item').width();
+            
+            // حذف استایل‌های inline برای اجازه دادن به انیمیشن‌های CSS
+            $('.owl-item.active .baner-buble, .owl-item.active .baner-txt').removeAttr('style');
+        }
     });
 });
