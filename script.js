@@ -222,7 +222,7 @@ $(function () {
       dots: true,
       loop: true,
       autoplay: true,
-      autoplayTimeout: 4000,
+      autoplayTimeout: 8000,
       autoplayHoverPause: true,
       // navText: [
       //     '<i class="fa-solid fa-chevron-right"></i>',
@@ -680,4 +680,31 @@ $(document).ready(function() {
     if ($(window).scrollTop() > 100) {
         $('body').addClass('header-scroll-active');
     }
+});
+$(document).ready(function() {
+    // ابتدا کلاس‌های انیمیشن را از عناصر برمی‌داریم تا با اسکرول فعال شوند
+    $('.motion-baner-item').addClass('animation-ready');
+    
+    // ایجاد Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // اگر عنصر وارد دید شده است
+            if (entry.isIntersecting) {
+                // کلاس animate را به والد owl-item اضافه می‌کنیم
+                $(entry.target).closest('.owl-item').addClass('animate');
+                // از نظارت بر این عنصر خارج می‌شویم (تا فقط یک بار انیمیشن اجرا شود)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        // آستانه 0.2 یعنی وقتی 20% از عنصر وارد دید شد، انیمیشن شروع می‌شود
+        threshold: 0.2,
+        // حاشیه منفی یعنی انیمیشن کمی قبل از رسیدن کامل عنصر به دید شروع می‌شود
+        rootMargin: '-50px 0px'
+    });
+
+    // همه baner-item ها را تحت نظارت قرار می‌دهیم
+    $('.motion-baner-item').each(function() {
+        observer.observe(this);
+    });
 });
