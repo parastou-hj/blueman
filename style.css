@@ -8,8 +8,8 @@ a{
     text-decoration: none !important;
 }
 @font-face {
-    font-family: IRANYekanWebLight;
-    src: url(./font/IRANYekanWebLight.ttf);
+    font-family: iranyekanwebregularfanum;
+    src: url(./font/iranyekanwebregularfanum.ttf);
   }
   @font-face {
     font-family: IRANYekanWebBold;
@@ -34,7 +34,7 @@ a{
   
 
 body {
-    font-family: IRANYekanWebRegular;
+    font-family: iranyekanwebregularfanum;
     direction: rtl;
     font-size: 15px;
     font-variant-numeric: diagonal-fractions;
@@ -44,7 +44,7 @@ body {
 /* Header Styles */
 .site-header {
     /* background-color: #ffffff; */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.173);
+   
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -60,23 +60,26 @@ body {
 /* Top Header Bar */
 .top-header {
     margin-bottom: 15px;
-    padding:15px;
+    padding-top: 15px;
     position: relative;
-    max-width: 1678px;
-    /* margin: 0px auto; */
     height: 180px;
+    /* max-width: 1678px; */
+     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.173); */
+     background-color: #fff;
+    /* margin: 0px auto; */
+    /* height: 180px; */
     
 }
 .header-back{
-    background-color: #fff;
-    min-height: 180px;
+    /* background-color: #fff; */
+    /* min-height: 180px; */
 }
 .header-bottom{
     position: absolute;
     bottom: -30px;
     right: 50%;
     transform: translateX(50%);
-        max-width: 1678px;
+        /* max-width: 1678px; */
     /* margin: 0px auto; */
    
 }
@@ -126,22 +129,9 @@ body {
     /* max-height: 60px; */
     /* width: auto; */
 }
-.site-logo.shrink {
-    height: 70px !important;
-    transition: height 0.3s ease;
-}
-.header-shrink{
-    height: 130px !important;
-}
-.header-shrink-mobile{
-    height: 130px !important;
-    padding: 0px 15px;
-}
-.header-back-shrink{
-    min-height: 130px !important;
-}
-.header-back-shrink-mobile{
-    min-height: 160px !important;
+
+.baner-sec-two{
+    direction: ltr;
 }
 .baner-sec-two .owl-dots {
     position: absolute;
@@ -249,6 +239,7 @@ body {
 .main-navigation {
     position: relative;
     padding: 0 15px;
+    width: 100% !important;
 }
 
 .nav-menu {
@@ -260,6 +251,7 @@ body {
     padding: 0;
     background-color: var(--primary-color);
     border-radius: 25px;
+      transition: border-radius .7s ease;
 }
 
 .nav-item {
@@ -611,6 +603,7 @@ body {
 
 /* Responsive Mega Menu */
 @media (max-width: 1200px) {
+    
     .megamenu-wrapper {
         gap: 15px;
     }
@@ -818,6 +811,19 @@ body {
         display: none;
     }
 }
+.motion-nav{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+}
+.motion-right{
+    right: 20px;
+}
+.motion-left{
+    left:20px
+}
 .container-fluid .row{
     max-width: 1678px;
     margin: 0px auto;
@@ -848,13 +854,14 @@ body {
             border-radius: 50%;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
             transition: transform 0.3s ease;
             flex-shrink: 0;
+            cursor: pointer;
         }
         
         .circular-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.01);
         }
         
         .circular-image img {
@@ -862,7 +869,77 @@ body {
             height: 100%;
             object-fit: cover;
         }
-        
+        .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.507);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn i {
+  font-size: 30px;
+  color: #333;
+  margin-left: 5px;
+}
+
+.play-btn:hover {
+  background: #fff;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .close-modal {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  video {
+    width: 100%;
+    display: block;
+  }
         .text-content {
             flex: 1;
             min-width: 300px;
@@ -895,7 +972,7 @@ body {
             justify-content: center;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 132, 227, 0.3);
+            box-shadow: 0 0px 10px rgba(0, 132, 227, 0.3);
             transition: all 0.3s ease;
             position: relative;
             /* margin-top: 25px; */
@@ -904,7 +981,7 @@ body {
         .view-more-btn:hover {
             background-color: #0771c7;
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 132, 227, 0.4);
+            box-shadow: 0 0px 12px rgba(0, 132, 227, 0.4);
         }
         
         .brand-section .btn-label {
@@ -919,6 +996,39 @@ body {
         
         /* Responsive Design */
         @media (max-width: 768px) {
+             .baner-right-img1 {
+        
+        right: 27%;
+    }
+    .baner-right-img2 {
+        
+        right: 27%;
+    }
+    .baner-rigth-txt1 {
+        top: 30%;
+        right: 12%;
+    }
+    .baner-rigth-txt2 {
+        top: 72%;
+        right: 13%;
+    }
+    .baner-left-img1, .baner-left-img2 {
+        position: absolute;
+        
+        transform: translateY(-50%);
+        left: 27%;
+    }
+    .baner-left-txt1 {
+        
+        top: 32%;
+        transform: translateY(-50%);
+        left: 3%;
+    }
+    .baner-left-txt2 {
+        top: 70%;
+        transform: translateY(-50%);
+        left: 17%;
+    }
             .content-wrapper {
                 flex-direction: column;
                 align-items: center;
@@ -1183,18 +1293,20 @@ body {
 }
 .baner-txt-two{
     position: absolute;
-    bottom: 70px;
+    bottom: 30px;
     right: 70px;
     z-index: 2;
     background-color: var(--primary-color);
     color: #fff;
     padding: 10px 25px;
     border-radius: 12px;
+    
    
 }
-.motion-baner-item{
-    height: 600px;
-}
+
+/* .motion-baner-item{
+    height: 500px;
+} */
 .motion-baner-back{
  width: 100%;
     height: 100%;
@@ -1271,6 +1383,7 @@ body {
     top: 27%;
     transform: translateY(-50%);
     right: 18%;
+    font-family:Arial, Helvetica, sans-serif
 
 }
 .baner-left-txt1{
@@ -1705,6 +1818,47 @@ body {
         
         /* Responsive Design */
         @media (max-width: 1200px) {
+             .baner-txt-two{
+        bottom: 20px;
+        right: 20px;
+    }
+    .baner-sec-two .owl-dots {
+       
+        right: 45%;
+    }
+     .baner-right-img1 {
+        
+        right: 27%;
+    }
+    .baner-right-img2 {
+        
+        right: 27%;
+    }
+    .baner-rigth-txt1 {
+        top: 30%;
+        right: 12%;
+    }
+    .baner-rigth-txt2 {
+        top: 72%;
+        right: 15%;
+    }
+    .baner-left-img1, .baner-left-img2 {
+        position: absolute;
+        
+        transform: translateY(-50%);
+        left: 27%;
+    }
+    .baner-left-txt1 {
+        
+        top: 32%;
+        transform: translateY(-50%);
+        left: 7%;
+    }
+    .baner-left-txt2 {
+        top: 70%;
+        transform: translateY(-50%);
+        left: 20%;
+    }
             .brands-carousel-container {
                 margin: 0;
             }
@@ -2771,7 +2925,7 @@ body {
     transform: translateX(100%);
     width: 80%;
     max-width: 320px;
-    height: 100vh;
+    max-height: 100vh;
     background-color: #ffffff;
     z-index: 2000;
     transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
@@ -2779,6 +2933,7 @@ body {
     flex-direction: column;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
     -webkit-overflow-scrolling: touch; 
+    overflow-y: auto;
 }
 
 .mobile-side-menu.active {
@@ -2798,6 +2953,7 @@ body.menu-open {
     justify-content: space-between;
     padding: 15px 20px;
     border-bottom: 1px solid #f0f0f0;
+    
 }
 
 .mobile-logo {
@@ -2912,10 +3068,11 @@ body.menu-open {
 
 /* Mobile Categories Container */
 .mobile-categories-container {
-    padding: 15px 20px;
+    /* padding: 15px 20px; */
     border-bottom: 1px solid #f0f0f0;
     flex: 1;
-    overflow-y: auto;
+    min-height: max-content;
+    /* overflow-y: auto; */
 }
 
 .mobile-section-title {
@@ -3024,7 +3181,7 @@ body.menu-open {
 }
 
 .mobile-submenu .view-all-link {
-    margin: 10px 15px;
+    /* margin: 10px 15px; */
     display: block;
     font-size: 13px;
     color: var(--primary-color);
@@ -3191,6 +3348,47 @@ body.menu-open {
 }
 
 @media (max-width: 991px) {
+    .baner-txt-two{
+        bottom: 20px;
+        right: 20px;
+    }
+    .baner-sec-two .owl-dots {
+       
+        right: 45%;
+    }
+     .baner-right-img1 {
+        
+        right: 27%;
+    }
+    .baner-right-img2 {
+        
+        right: 27%;
+    }
+    .baner-rigth-txt1 {
+        top: 30%;
+        right: 9%;
+    }
+    .baner-rigth-txt2 {
+        top: 72%;
+        right: 12%;
+    }
+    .baner-left-img1, .baner-left-img2 {
+        position: absolute;
+        
+        transform: translateY(-50%);
+        left: 27%;
+    }
+    .baner-left-txt1 {
+        
+        top: 32%;
+        transform: translateY(-50%);
+        left: 3%;
+    }
+    .baner-left-txt2 {
+        top: 70%;
+        transform: translateY(-50%);
+        left: 17%;
+    }
     .mobile-menu-toggle {
         display: flex;
         margin-right: 0;
@@ -3502,6 +3700,39 @@ body.menu-open {
         }
         
         @media (max-width: 576px) {
+            .owl-dots .owl-dot span {
+            width: 8px !important;
+            height: 8px  !important;
+            margin: 2px ;
+            background-color: #dee2e6;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+            .baner-item .buble-1 {
+                position: absolute;
+                top: 39%;
+                left: 50%;
+                
+            }
+            .baner-item .buble-3 {
+                position: absolute;
+                bottom: 20%;
+                left: 45%;
+                z-index: 2;
+                opacity: 0;
+            }
+            .baner-item .buble-2 {
+                position: absolute;
+                top: 45%;
+                right: 25%;
+                z-index: 2;
+                opacity: 0;
+            }
+            .baner-buble{
+                width: 25px !important;
+                height: 25px !important;
+            }
             .slide-container {
                 height: 250px;
             }
@@ -3511,7 +3742,10 @@ body.menu-open {
             }
             .pro-baner-sec .product-card {
               
-                height: 300px;
+                height: 285px;
+            }
+            .pro-baner-sec .product-description {
+                margin-bottom: 5px;
             }
             .pro-baner-sec .product-title {
                 font-size: 1.6em;
@@ -4660,6 +4894,16 @@ body.menu-open {
 
 /* استایل برای موبایل */
 @media (max-width: 768px) {
+   
+    
+
+    .sm-img{
+        width: 56px;
+        height: 56px;
+    }
+    .motion-baner-item{
+        height: auto;
+    }
     .category-image img {
         position: absolute;
         top: -20px;
@@ -4670,9 +4914,9 @@ body.menu-open {
         height: 130px !important;
     }
     
-    .product-image {
+    /* .product-image {
         height: 120px !important;
-    }
+    } */
    
         .category-image-wrapper {
             height: 100px;
@@ -4714,9 +4958,7 @@ body.menu-open {
             display: none;
             flex-direction: column;
             width: 100%;
-            position: absolute;
-            top: 50px;
-            right: 0;
+           
             background-color: var(--primary-color);
             border-radius: 10px;
             overflow: hidden;
@@ -4855,6 +5097,112 @@ body.menu-open {
 }
 
 @media (max-width: 576px) {
+    .cart-submenu, .user-submenu{
+        display: none;
+    }
+    .play-btn{
+        width: 50px;
+        height: 50px;
+    }
+    .play-btn i{
+        font-size: 22px;
+    }
+    body {
+    padding-top: 160px !important;
+    transition: padding-top 0.4s ease;
+}
+    .top-header{
+        height: 135px !important;
+    }
+    .header-back{
+        min-height: max-content !important;
+        padding-bottom: 10px;
+    }
+    .manufacturer-name {
+        font-size: 1.1em;
+    }
+    .product-type {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    .product-series {
+        font-size: 1.3em;
+    }
+    .product-tagline {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    .filtration-carousel .content-wrapper {
+        padding: 5px;
+    }
+    .slide-container{
+        height: 210px;
+    }
+    .motion-baner-item{
+        height: 240px;
+    }
+    .baner-item-main-img{
+        height: 250px;
+        width: 35%;
+        right: 32.5%;
+        top: 52%;
+    }
+    .baner-item-main-img img {
+        
+        object-fit: cover;
+    }
+    .sm-flesh{
+        width: 40px;
+    }
+    .sm-img{
+        width: 35px;
+    }
+    .baner-rigth-txt1,.baner-rigth-txt2, .baner-left-txt2, .baner-left-txt1{
+        font-size: 1em;
+    }
+    .baner-right-img1 {
+        
+        right: 26%;
+    }
+    .baner-right-img2 {
+        
+        right: 26%;
+    }
+    .baner-rigth-txt1 {
+        top: 30%;
+        right: 3%;
+    }
+    .baner-rigth-txt2 {
+        top: 72%;
+        right: 6%;
+    }
+    .baner-left-img1, .baner-left-img2 {
+        position: absolute;
+        
+        transform: translateY(-50%);
+        left: 26%;
+    }
+    .baner-left-txt1 {
+        top: 28%;
+        transform: translateY(-50%);
+        left: 6%;
+        width: 80px;
+        text-align: left;
+    }
+    .baner-left-txt2 {
+        top: 70%;
+        transform: translateY(-50%);
+        left: 13%;
+    }
+    .baner-sec-two .owl-dots {
+        right: 40%;
+    }
+    .baner-txt-two{
+        bottom: 5px;
+        font-size: .9em;
+        padding: 8px 10px;
+        border-radius: 5px;
+    }
     .subcategory-list {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -4895,7 +5243,7 @@ body.menu-open {
         display: none;
     }
     .header-back{
-        min-height: 140px;
+        /* min-height: 140px; */
     }
     
    
@@ -5045,11 +5393,14 @@ body.menu-open {
     position: absolute;
     top: 50%;
     right: 35%;
+    max-width: 464px;
+    max-height: 720px;
     width: 30%;
-    height: 600px;
+    /* height: 600px; */
    
 }
-/* کلاس‌های آماده‌سازی: عناصر را در حالت اولیه قبل از انیمیشن قرار می‌دهند */
+
+
 .animation-ready .baner-item-main-img,
 .animation-ready .motion-baner-light img,
 .animation-ready .baner-right-flesh1,
@@ -5066,10 +5417,9 @@ body.menu-open {
 .animation-ready .baner-left-txt2,
 .animation-ready .baner-txt-two {
     opacity: 0;
-    transform: translateY(20px); /* حالت اولیه با کمی جابجایی به پایین */
+    transform: translateY(20px); 
 }
 
-/* انیمیشن‌ها فقط برای عناصر درون owl-item.animate فعال می‌شوند */
 .owl-item.animate .motion-baner-item .baner-item-main-img {
     animation: fadeInMainImage 1.5s ease forwards;
     animation-delay: 0.3s;
@@ -5137,10 +5487,6 @@ body.menu-open {
     animation-delay: 3.6s;
 }
 
-/* Set continuous rotation for the background light after it appears */
-.owl-item.animate .motion-baner-item .motion-baner-light img {
-    animation: fadeInRotate 2.5s ease forwards, rotate 30s linear infinite 2.5s;
-}
 
 @keyframes rotate {
     0% {
@@ -5165,8 +5511,9 @@ body.menu-open {
 
 .header-back {
     transition: height 0.4s ease, background-color 0.4s ease;
-    min-height: 180px;
-    background-color: #fff;
+    /* min-height: 180px; */
+    /* background-color: #fff; */
+    height: max-content;
 }
 
 .top-header {
@@ -5174,7 +5521,7 @@ body.menu-open {
     transform: translateY(0);
    
     z-index: 10;
-    height: 180px;
+    /* height: 180px; */
 }
 
 .header-bottom {
@@ -5182,40 +5529,48 @@ body.menu-open {
     position: absolute;
     bottom: -30px;
     right: 50%;
-    max-width: 1678px;
-    z-index: 100;
+
+    /* z-index: 100; */
     opacity: 1;
 }
 
 /* استایل‌های حالت اسکرول */
 body.header-scroll-active .header-back {
-    height: 70px !important;
-    min-height: 70px !important;
-    background-color: var(--primary-color);
+    /* height: 70px !important;
+    min-height: 70px !important; */
+   
     
+}
+body.header-scroll-active .nav-menu{
+    transition: border-radius .7s ease;
+    border-radius: 0px;
+}
+body.header-scroll-active .main-navigation{
+   padding: 0px;
 }
 
 /* هدر تاپ به سمت بالا حرکت می‌کند */
 body.header-scroll-active .top-header {
     /* opacity: 0; */
-    transform: translateY(-180px);
+    transform: translateY(-160px);
     transition: transform 0.7s ease;
+     /* background-color: var(--primary-color); */
 }
 
 /* هدر باتم به سمت بالا حرکت می‌کند */
 body.header-scroll-active .header-bottom {
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    height: 70px;
+    height: 70px; */
     /* right: 0;
     left: 0; */
     /* transform: translateX(0); */
     width: 100% !important;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 0;
-    padding: 0 30px;
+    /* justify-content: center; */
+    /* border-radius: 0;
+    padding: 0 30px; */
    
     
 }
@@ -5224,10 +5579,74 @@ body.header-scroll-active .header-bottom {
 
 /* افزودن فاصله برای بدنه صفحه برای جلوگیری از پوشیده شدن محتوا */
 body {
-    padding-top: 180px;
+    padding-top: 130px;
     transition: padding-top 0.4s ease;
 }
 
 body.header-scroll-active {
     padding-top: 70px;
+}
+
+/* استایل‌های پایه برای آیتم‌های منو که زیرمنو دارند */
+.nav-item.has-submenu > .nav-link {
+    display: flex; /* برای هم‌راستا کردن متن و نشانگر */
+    justify-content: space-between; /* متن در یک سمت، نشانگر در سمت دیگر */
+    align-items: center;
+}
+
+.nav-item-indicator {
+    margin-left: 8px; /* یا margin-right بسته به چیدمان زبان شما */
+    transition: transform 0.3s ease;
+    display: inline-flex; /* برای هم‌راستایی بهتر آیکون */
+}
+
+.nav-item.active-accordion > .nav-link .nav-item-indicator i { /* وقتی آکاردئون باز است */
+    transform: rotate(180deg);
+}
+
+/* زیرمنوی اصلی آیتم‌ها */
+.nav-item-submenu {
+    display: none; /* به طور پیش‌فرض مخفی */
+    /* padding-left: 20px; */
+    /* استایل‌های دیگر مانند پس‌زمینه، بوردر و ... */
+    background-color: #f9f9f9; /* مثال */
+    border-top: 1px solid #eee; /* مثال */
+}
+
+.nav-item-submenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-item-submenu ul li {
+ padding: 10px 15px;
+}
+
+.nav-item-submenu ul li a {
+    /* display: block; */
+   
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-item-submenu ul li a:hover {
+    color: var(--primary-color);
+    background-color: #e9e9e9;
+}
+
+/* استایل برای عنوان داخلی بخش دسته‌بندی محصولات اگر متفاوت است */
+.nav-item-submenu .mobile-section-title-inner {
+    padding: 10px 0px 10px 0; /* پدینگ عنوان داخلی دسته‌بندی‌ها */
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--secondary-color); /* مثال */
+}
+
+/* استایل‌های قبلی برای .mobile-categories-list، .mobile-category-item و .mobile-submenu همچنان معتبر هستند */
+/* فقط مطمئن شوید که .mobile-submenu (زیرمنوی داخلی دسته‌بندی‌ها) هم به طور پیش‌فرض display:none; دارد */
+.mobile-submenu {
+    display: none; /* این باید از قبل وجود داشته باشد */
+    /* ... بقیه استایل‌های .mobile-submenu */
 }

@@ -1,6 +1,5 @@
 
-// Mobile Menu Toggle Functionality
-// Dynamic Mega Menu JavaScript
+
 $(document).ready(function() {
     // Set default active category (first one)
     const defaultCategory = $('.category-item').first().data('category');
@@ -196,13 +195,13 @@ $(document).ready(function() {
 
   $(function () {
     $("#baner-owl-two").owlCarousel({
-      rtl: true,
+      rtl: false,
       items: 1,
       // nav: true,
       dots: true,
-      loop: true,
-      autoplay: true,
-      autoplayTimeout: 8000,
+    //   loop: true,
+    //   autoplay: true,
+      autoplayTimeout: 6000,
       autoplayHoverPause: true,
       // navText: [
       //     '<i class="fa-solid fa-chevron-right"></i>',
@@ -303,7 +302,8 @@ $(document).ready(function() {
 
 
     
- $(document).ready(function(){
+ 
+        $(document).ready(function(){
             var articlesCarousel = $('.articles-carousel').owlCarousel({
                 rtl: true,
                 loop: true,
@@ -434,29 +434,7 @@ $(document).ready(function() {
 
   
 
-function convertToPersianNumbers() {
-    const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-    const englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-    
-    function convert(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            let text = node.nodeValue;
-            for (let i = 0; i < englishNumbers.length; i++) {
-                text = text.replace(new RegExp(englishNumbers[i], 'g'), persianNumbers[i]);
-            }
-            node.nodeValue = text;
-        } else {
-            for (let i = 0; i < node.childNodes.length; i++) {
-                convert(node.childNodes[i]);
-            }
-        }
-    }
-    
-    convert(document.body);
-}
 
-
-document.addEventListener('DOMContentLoaded', convertToPersianNumbers);
 
 $(document).ready(function() {
     $('.mobile-menu-toggle').on('click', function() {
@@ -477,23 +455,23 @@ $(document).ready(function() {
         $(this).find('.dropdown-indicator i').toggleClass('fa-chevron-down fa-chevron-up');
     });
     
-    $('.mobile-category-item > a').on('click', function(e) {
-        e.preventDefault();
-        const $parent = $(this).parent();
-        const $submenu = $parent.find('.mobile-submenu');
+    // $('.mobile-category-item > a').on('click', function(e) {
+    //     e.preventDefault();
+    //     const $parent = $(this).parent();
+    //     const $submenu = $parent.find('.mobile-submenu');
         
-        if ($submenu.length) {
-            if ($submenu.is(':visible')) {
-                $submenu.slideUp(300);
-                $parent.removeClass('active');
-                $(this).find('.dropdown-indicator i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
-            } else {
-                $submenu.slideDown(300);
-                $parent.addClass('active');
-                $(this).find('.dropdown-indicator i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
-            }
-        }
-    });
+    //     if ($submenu.length) {
+    //         if ($submenu.is(':visible')) {
+    //             $submenu.slideUp(300);
+    //             $parent.removeClass('active');
+    //             $(this).find('.dropdown-indicator i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+    //         } else {
+    //             $submenu.slideDown(300);
+    //             $parent.addClass('active');
+    //             $(this).find('.dropdown-indicator i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+    //         }
+    //     }
+    // });
     
     $(window).on('resize', function() {
         if (window.innerWidth > 991) {
@@ -643,32 +621,114 @@ $(document).ready(function() {
 
    }
 });
+
+//----------------------video-modal
+$(document).ready(function () {
+    const modal = $(".video-modal");
+    const video = $("#myVideo")[0];
+  
+    $(".circular-image").click(function () {
+      modal.fadeIn();
+      video.play();
+    });
+  
+    $(".close-modal, .modal-overlay").click(function () {
+      modal.fadeOut();
+      video.pause();
+      video.currentTime = 0;
+    });
+  
+    $(".modal-content video").click(function (e) {
+      e.stopPropagation();
+    });
+  });
+  
+
+
+
+
 $(document).ready(function() {
-    // ابتدا کلاس‌های انیمیشن را از عناصر برمی‌داریم تا با اسکرول فعال شوند
-    $('.motion-baner-item').addClass('animation-ready');
+    const $bannerOwlTwo = $('#baner-owl-two');
+
+    if (!$bannerOwlTwo.length) {
+        return;
+    }
+
+    $bannerOwlTwo.find('.motion-baner-item').addClass('animation-ready');
+
+    function triggerActiveSlideAnimation(carouselInstance, debugSource = "unknown") {
+     
+        const delay = (debugSource === 'IntersectionObserver_init' || debugSource === 'initialized_in_viewport') ? 100 : 50;
+
+        setTimeout(function() {
+            // console.log(`Triggering animation for ${debugSource} with delay ${delay}ms`);
+            carouselInstance.find('.owl-item').removeClass('animate');
+            carouselInstance.find('.owl-item.active').addClass('animate');
+        }, delay);
+    }
+
+    // 3. مقداردهی اولیه Owl Carousel
+    $bannerOwlTwo.owlCarousel({
+        items: 1,
+        loop: true,
+        nav: true,
+        dots: true,
+     
+        onInitialized: function(event) { 
+        }
+    });
     
-    // ایجاد Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // اگر عنصر وارد دید شده است
-            if (entry.isIntersecting) {
-                // کلاس animate را به والد owl-item اضافه می‌کنیم
-                $(entry.target).closest('.owl-item').addClass('animate');
-                // از نظارت بر این عنصر خارج می‌شویم (تا فقط یک بار انیمیشن اجرا شود)
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        // آستانه 0.2 یعنی وقتی 20% از عنصر وارد دید شد، انیمیشن شروع می‌شود
-        threshold: 0.2,
-        // حاشیه منفی یعنی انیمیشن کمی قبل از رسیدن کامل عنصر به دید شروع می‌شود
-        rootMargin: '-50px 0px'
+
+
+    // 4. اتصال رویداد 'translated' برای انیمیشن اسلایدهای بعدی
+    $bannerOwlTwo.on('translated.owl.carousel', function(event) { 
+      
+        triggerActiveSlideAnimation($(this), 'translated');
     });
 
-    // همه baner-item ها را تحت نظارت قرار می‌دهیم
-    $('.motion-baner-item').each(function() {
-        observer.observe(this);
-    });
+    if ('IntersectionObserver' in window) {
+        const carouselObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if ($bannerOwlTwo.data('owl.carousel')) {
+                         triggerActiveSlideAnimation($bannerOwlTwo, 'IntersectionObserver_init');
+                    } else {
+                        
+                        $bannerOwlTwo.one('initialized.owl.carousel', function() { 
+                            
+                            triggerActiveSlideAnimation($bannerOwlTwo, 'IntersectionObserver_init_after_owl_init');
+                        });
+                    }
+                    observer.unobserve($bannerOwlTwo[0]); 
+                }
+            });
+        }, {
+            threshold: 0.2, 
+            rootMargin: "0px 0px -50px 0px"
+        });
+        carouselObserver.observe($bannerOwlTwo[0]);
+    } else {
+       
+        function initialAnimationFallback() {
+            const rect = $bannerOwlTwo[0].getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom >= 0 &&
+                                 rect.left < window.innerWidth && rect.right >= 0;
+            if (isInViewport) {
+                triggerActiveSlideAnimation($bannerOwlTwo, 'initialized_in_viewport');
+            } else {
+               
+            }
+        }
+
+        if ($bannerOwlTwo.data('owl.carousel')) { 
+            initialAnimationFallback();
+        } else { 
+            $bannerOwlTwo.one('initialized.owl.carousel', function(event) {
+               
+                initialAnimationFallback();
+            });
+        }
+    }
 });
 
 $(document).ready(function() {
@@ -679,7 +739,7 @@ $(document).ready(function() {
         dots: false,
         loop: true,
         autoplay: true,
-        autoplayTimeout: 6000, // افزایش زمان برای اتمام انیمیشن‌ها
+        autoplayTimeout: 6000, 
         autoplayHoverPause: true,
         responsive: {
             0: {
@@ -687,26 +747,21 @@ $(document).ready(function() {
             },
         },
         onTranslated: function() {
-            // ریست کردن انیمیشن‌ها برای همه آیتم‌ها
             $('.baner-buble, .baner-txt').css({
                 'animation': 'none',
                 'opacity': '0'
             });
             
-            // اجبار به بازسازی DOM برای شروع مجدد انیمیشن‌ها
             $('.owl-item.active .baner-item').width();
             
-            // حذف استایل‌های inline برای اجازه دادن به انیمیشن‌های CSS
             $('.owl-item.active .baner-buble, .owl-item.active .baner-txt').removeAttr('style');
         }
     });
 });
 
 $(document).ready(function() {
-    // Select all banner items in the owl-baner carousel
     const banerItems = $('#baner-owl .baner-item');
     
-    // For each banner item, add mouse movement tracking
     banerItems.each(function() {
         const item = $(this);
         const txt = item.find('.baner-txt');
@@ -748,4 +803,59 @@ $(document).ready(function() {
             bubbles.css('transform', 'translate(0, 0)');
         });
     });
+});
+
+$(document).ready(function() {
+    // --- آکاردئون سطح اول (برای .nav-item ها) ---
+    $('.nav-menu .nav-item.has-submenu > .nav-link').on('click', function(e) {
+        // اگر لینک واقعاً به جایی می‌رود و فقط برای باز/بسته کردن نیست، e.preventDefault() نزنید.
+        // اگر لینک فقط برای toggle است، e.preventDefault() لازم است.
+        // در مثال HTML بالا، لینک های اصلی nav-item به "#" یا یک URL واقعی می‌روند.
+        // اگر خود لینک عملکردی ندارد و فقط برای باز کردن است:
+        if ($(this).attr('href') === '#') { // یا یک شرط دیگر برای تشخیص لینک‌های صرفاً toggle
+             e.preventDefault();
+        }
+
+        let $parentNavItem = $(this).closest('.nav-item.has-submenu');
+        let $submenu = $parentNavItem.find('> .nav-item-submenu'); // فقط زیرمنوی مستقیم
+
+        // اگر می‌خواهید فقط یک آکاردئون در این سطح باز بماند:
+        // $parentNavItem.siblings('.has-submenu.active-accordion').removeClass('active-accordion').find('> .nav-item-submenu').slideUp();
+
+        $parentNavItem.toggleClass('active-accordion');
+        $submenu.slideToggle(); // انیمیشن باز و بسته شدن
+    });
+
+    // --- آکاردئون سطح دوم (برای .mobile-category-item ها داخل دسته‌بندی محصولات) ---
+    // این کد احتمالاً شبیه کدی است که از قبل برای دسته‌بندی‌ها داشتید.
+    $('.mobile-categories-list .mobile-category-item > a').on('click', function(e) {
+        // مشابه بالا، اگر لینک فقط برای toggle است:
+        if ($(this).attr('href') === '#') {
+            e.preventDefault();
+        }
+
+        let $parentCategoryItem = $(this).closest('.mobile-category-item');
+        let $categorySubmenu = $parentCategoryItem.find('> .mobile-submenu');
+
+        // اگر می‌خواهید فقط یک دسته‌بندی در این سطح باز بماند:
+        // $parentCategoryItem.siblings('.active').removeClass('active').find('> .mobile-submenu').slideUp();
+        // $parentCategoryItem.siblings().find('.mobile-submenu').slideUp();
+        // $parentCategoryItem.siblings().removeClass('active'); // 'active' کلاس CSS شما برای آیتم باز
+
+
+        $parentCategoryItem.toggleClass('active'); // کلاس 'active' برای استایل دهی (مثلاً چرخش آیکون)
+        $categorySubmenu.slideToggle();
+
+        // اعمال انیمیشن آیتم‌های زیرمنو (اگر هنوز لازم است)
+        if ($parentCategoryItem.hasClass('active')) {
+            $categorySubmenu.find('.mobile-subcategory-list li').each(function(index) {
+                $(this).css('--item-index', index + 1); // برای انیمیشن staggered
+            });
+        }
+    });
+
+    // کد مربوط به باز و بسته شدن منوی اصلی موبایل
+    // $('.mobile-menu-toggle').on('click', function() { ... });
+    // $('.mobile-menu-close').on('click', function() { ... });
+
 });
